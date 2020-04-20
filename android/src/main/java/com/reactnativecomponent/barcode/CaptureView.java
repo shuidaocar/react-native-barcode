@@ -386,6 +386,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
     public void stopQR() {
         this.decodeFlag = false;
+        stopScan();
     }
 
     public void startQR() {

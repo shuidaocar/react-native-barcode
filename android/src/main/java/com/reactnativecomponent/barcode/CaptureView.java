@@ -376,7 +376,9 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
     public void stopScan() {
         hasSurface = false;
-        viewfinderView.drawLine = false;
+        if (viewfinderView != null) {
+            viewfinderView.drawLine = false;
+        }
         if (handler != null) {
             handler.quitSynchronously();
         }
@@ -749,7 +751,9 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
                 @Override
                 public void onAnimationStart(Animator animation) {
 
-                    viewfinderView.drawLine = false;
+                    if (viewfinderView != null) {
+                        viewfinderView.drawLine = false;
+                    }
                     stopQR();
                 }
 
@@ -783,7 +787,9 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
                     CameraManager.get().framingRectInPreview = null;
 //                    decodeFormats = null;
-                    viewfinderView.drawLine = true;
+                    if (viewfinderView != null) {
+                        viewfinderView.drawLine = true;
+                    }
                     surfaceTexture = textureView.getSurfaceTexture();
 //                    startScan();
                       startQR();
@@ -797,7 +803,9 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 //                    decodeFormats = null;
                     surfaceTexture = textureView.getSurfaceTexture();
                     startScan();
-                    viewfinderView.drawLine = true;
+                    if (viewfinderView != null) {
+                        viewfinderView.drawLine = true;
+                    }
                 }
 
                 @Override

@@ -358,7 +358,9 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
     public void startScan() {
         if (!hasSurface) {
+            if (viewfinderView != null) {
             viewfinderView.drawLine = true;
+        }
             hasSurface = true;
             CameraManager.get().framingRectInPreview = null;
             initCamera(surfaceTexture);
